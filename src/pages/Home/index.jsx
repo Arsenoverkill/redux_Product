@@ -3,10 +3,11 @@ import fon1 from "../../images/Group 1.jpg";
 import { IoSearchOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import add_product from "../../images/add_product.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const product = useSelector((state) => state.product.product);
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -94,21 +95,29 @@ const Home = () => {
           margin: "30px 0",
         }}
       >
-        <div className="category">
-          <div className="category">
-            <div className="lips">
-              <img
-                style={{
-                  width: "130px",
-                }}
-                src="https://static.vecteezy.com/system/resources/previews/027/521/085/original/fresh-beef-isolated-on-transparent-background-raw-meat-cut-out-generative-ai-png.png"
-                alt=""
-              />
-            </div>
+        <div
+          onClick={() => {
+            navigate("/category/meat");
+          }}
+          className="category"
+        >
+          <div className="lips">
+            <img
+              style={{
+                width: "130px",
+              }}
+              src="https://static.vecteezy.com/system/resources/previews/027/521/085/original/fresh-beef-isolated-on-transparent-background-raw-meat-cut-out-generative-ai-png.png"
+              alt=""
+            />
           </div>
           <h1>Meat</h1>
         </div>
-        <div className="category">
+        <div
+          onClick={() => {
+            navigate("/category/sweet");
+          }}
+          className="category"
+        >
           <div className="lips">
             <img
               style={{
@@ -120,7 +129,12 @@ const Home = () => {
           </div>
           <h1>Sweets</h1>
         </div>
-        <div className="category">
+        <div
+          onClick={() => {
+            navigate("/category/vegetable");
+          }}
+          className="category"
+        >
           <div className="lips">
             <img
               style={{
@@ -132,7 +146,12 @@ const Home = () => {
           </div>
           <h1>Vegetables</h1>
         </div>
-        <div className="category">
+        <div
+          onClick={() => {
+            navigate("/category/drink");
+          }}
+          className="category"
+        >
           <div className="lips">
             <img
               style={{
@@ -144,7 +163,12 @@ const Home = () => {
           </div>
           <h1>Drink</h1>
         </div>
-        <div className="category">
+        <div
+          onClick={() => {
+            navigate("/category/product");
+          }}
+          className="category"
+        >
           <div className="lips">
             <img
               style={{

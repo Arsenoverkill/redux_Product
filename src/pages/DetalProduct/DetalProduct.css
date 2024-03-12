@@ -1,10 +1,9 @@
 .detal_blocks {
-  margin-top: 30px;
+  margin-top: 70px;
 }
 .detal_block {
   display: flex;
-  align-items: center;
-  gap: 70px;
+  gap: 50px;
 }
 .detal_block img {
   width: 40%;
@@ -24,6 +23,11 @@
   margin: 10px 0;
   width: 400px;
   line-height: 25px;
+}
+
+.btns {
+  display: flex;
+  gap: 20px;
 }
 
 .plus_minus {
@@ -58,4 +62,110 @@
 .button:active {
   transform: scale(0.95);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.button-2 {
+  border: 2px solid royalblue;
+  display: block;
+  position: relative;
+  padding: 0.7em 2.4em;
+  font-size: 18px;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: royalblue;
+  z-index: 1;
+  font-family: inherit;
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+.button-2 span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+}
+
+.button-2 span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8%;
+  height: 500%;
+  background: var(--lightgray);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+  transition: all 0.3s;
+}
+
+.button-2:hover span::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 100%;
+  height: 300px;
+  background: royalblue;
+}
+
+.button-2:hover {
+  color: white;
+}
+
+.button-2:active span::before {
+  background: #2751cd;
+}
+
+.success {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 320px;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  background: #c8eb92;
+  border-radius: 8px;
+  border: 1px solid #479e1b;
+  box-shadow: 0px 0px 5px -3px #111;
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  animation: succes 1s;
+}
+@keyframes succes {
+  0% {
+    transform: translateX(500px);
+  }
+}
+.success__icon {
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  margin-right: 8px;
+}
+
+.success__icon path {
+  fill: #84d65a;
+}
+
+.success__title {
+  font-weight: 500;
+  font-size: 14px;
+  color: #2b641e;
+}
+
+.success__close {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.success__close path {
+  fill: #2b641e;
 }

@@ -7,6 +7,9 @@ import { useState } from "react";
 import rabbitStart from "./images/rabbit-loading.png";
 import DetalProduct from "./pages/DetalProduct/DetalProduct";
 import AllProduct from "./pages/AllProduct/AllProduct";
+import Order from "./pages/Order/Order";
+import Category from "./pages/Category/Category";
+
 function App() {
   const [load, setLoad] = useState(true);
   setTimeout(() => {
@@ -58,6 +61,7 @@ function App() {
         <Route path="/admin" element={<Admin />} key={2} />
         <Route path="/detal/:id" element={<DetalProduct/>} key={3} />
         <Route path="/allProduct" element= {<AllProduct/>} key={3}/>
+        <Route path="/category/:category" element={<Category/>} key={5} />
       </Routes>
     </div>
   );
