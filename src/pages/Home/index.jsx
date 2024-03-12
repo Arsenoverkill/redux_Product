@@ -75,13 +75,16 @@ const Home = () => {
             alt=""
           />
         </div>
-        <h2
-          style={{
-            color: "#2382AA",
-          }}
-        >
-          See All
-        </h2>
+        <NavLink to={"/allProduct"}>
+          <h2
+            style={{
+              cursor: "pointer",
+              color: "#2382AA",
+            }}
+          >
+            See All
+          </h2>
+        </NavLink>
       </div>
       <div
         style={{

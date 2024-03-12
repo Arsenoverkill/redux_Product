@@ -1,0 +1,11 @@
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 40px 0;
+  font-size: 30px;
+}
+.links p {
+  cursor: pointer;
+  color: #98a2b3;
+}

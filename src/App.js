@@ -6,7 +6,7 @@ import Admin from "./pages/Admin";
 import { useState } from "react";
 import rabbitStart from "./images/rabbit-loading.png";
 import DetalProduct from "./pages/DetalProduct/DetalProduct";
-
+import AllProduct from "./pages/AllProduct/AllProduct";
 function App() {
   const [load, setLoad] = useState(true);
   setTimeout(() => {
@@ -57,6 +57,7 @@ function App() {
         <Route path="/" element={<Home />} key={1} />
         <Route path="/admin" element={<Admin />} key={2} />
         <Route path="/detal/:id" element={<DetalProduct/>} key={3} />
+        <Route path="/allProduct" element= {<AllProduct/>} key={3}/>
       </Routes>
     </div>
   );
