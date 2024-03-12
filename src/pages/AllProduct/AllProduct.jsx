@@ -8,6 +8,7 @@ const AllProduct = () => {
   const product = useSelector((state) => state.product.product);
   const [active, setActive] = useState(1);
   const [category, setCategory] = useState('all');
+  //ycgvhj
   return (
     <div id="allPoduct">
       <div className="links">
