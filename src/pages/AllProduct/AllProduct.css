@@ -9,3 +9,29 @@
   cursor: pointer;
   color: #98a2b3;
 }
+.not_product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 90px;
+}
+.not_product img {
+  width: 10%;
+}
+.edit_delet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit_delet button {
+  padding: 3px 10px 0 10px;
+  height: 33px;
+  box-shadow: none;
+}
+.edit {
+  background: rgba(15, 162, 15, 0.774);
+}
+.delet {
+  background: rgba(248, 37, 37, 0.774);
+}

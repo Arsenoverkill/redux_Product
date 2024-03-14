@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "./Header.scss";
 import homeLogo from "../../images/home.png";
 import { SlBasket } from "react-icons/sl";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RiAdminFill } from "react-icons/ri";
 
 const Header = ({ setValue }) => {
+  const [nav, setNav] = useState("");
+  const navigate = useNavigate();
   return (
     <header>
       <div className="container">
@@ -48,6 +50,10 @@ const Header = ({ setValue }) => {
               class="input-2"
               onChange={(e) => {
                 setValue(e.target.value);
+                setNav(e.target.value);
+              }}
+              onClick={()=>{
+                navigate('/allProduct')
               }}
             />
             <svg
