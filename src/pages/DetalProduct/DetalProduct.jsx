@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./DetalProduct.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
+import add_product from "../../images/add_product.svg";
 import { ADD_BASKET } from "../../redux/actionTypes";
 
 const DetalProduct = () => {
   const product = useSelector((s) => s.product.product);
   const [detalProduct, setDetalProduct] = useState([]);
-  const [recomend, setRecomend] = useState([]);
+  const [recomend, setRecomend] = useState('');
   const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
   // const navigate = useNavigate();
@@ -17,13 +19,10 @@ const DetalProduct = () => {
     let res = product.filter((el) => {
       return el.id == id;
     });
-    let str = product.filter((el) => {
-      return detalProduct.filter((il) => {
-        return el.category == il.category;
-      });
+    detalProduct.map((el) => {
+        setRecomend(el.category)
     });
     setDetalProduct(res);
-    setRecomend(str);
   }, [detalProduct]);
 
   function setOrder() {
@@ -79,12 +78,32 @@ const DetalProduct = () => {
                 </div>
               </div>
             </div>
+            <h1
+              style={{
+                margin: "60px 0",
+              }}
+            >
+              Recomend product
+            </h1>
             <div className="recomend">
-              {recomend.map((el) => (
-                <div>
-                  <h1>{el.name}</h1>
-                </div>
-              ))}
+              {product.map((el)=>{
+                if(el.category == recomend){
+                  return(
+                      <div>
+                        <div className="home_block">
+                          <img className="product" src={el.image} alt="" />
+                          <NavLink to={`/detal/${el.id}`}>
+                            <img className="add" src={add_product} alt="" />
+                          </NavLink>
+                          <h1>{el.price}$</h1>
+                          <h3>
+                            {el.name.length > 20 ? el.name.slice(0, 20) : el.name}
+                          </h3>
+                        </div>
+                      </div>
+                  )
+                }
+              })}
             </div>
           </div>
         ))}

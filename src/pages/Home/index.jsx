@@ -15,6 +15,9 @@ const Home = () => {
       }}
     >
       <button
+        onClick={() => {
+          navigate("/allProduct");
+        }}
         style={{
           margin: "30px 0 30px 50px",
           background: "#2382AA",

@@ -1,5 +1,6 @@
 .detal_blocks {
   margin-top: 70px;
+  margin-left: 80px;
 }
 .detal_block {
   display: flex;
@@ -24,7 +25,10 @@
   width: 400px;
   line-height: 25px;
 }
-
+.recomend {
+  display: flex;
+  gap: 30px;
+}
 .btns {
   display: flex;
   gap: 20px;

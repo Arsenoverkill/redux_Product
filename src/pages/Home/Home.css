@@ -35,7 +35,7 @@
 }
 .home_blocks {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   overflow: auto;
 }
 .home_block {
@@ -45,7 +45,6 @@
   border: solid 3px #dedede;
   border-radius: 25px;
   box-shadow: 0 0 3px #dedede;
-  margin-left: 60px;
   position: relative;
 }
 .home_block h1 {
@@ -58,7 +57,7 @@
   font-weight: 300;
 }
 .product {
-  width: 90%;
+  width: 280px;
   height: 70%;
 }
 .add {

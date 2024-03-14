@@ -8,7 +8,7 @@ const Admin = () => {
   const [image, setImage] = useState("");
   const [price, setPrice] = useState("");
   const [plot, setPlot] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("meat");
   const dispatch = useDispatch();
   function creatData() {
     let data = JSON.parse(localStorage.getItem("product")) || [];

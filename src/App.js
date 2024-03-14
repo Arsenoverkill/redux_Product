@@ -13,6 +13,7 @@ import Order from "./pages/Order/Order";
 
 function App() {
   const [load, setLoad] = useState(true);
+  const [value, setValue] = useState("");
   setTimeout(() => {
     setLoad(false);
   }, 2000);
@@ -53,7 +54,7 @@ function App() {
     </div>
   ) : (
     <div className="App">
-      <Header />
+      <Header setValue={setValue} />
       <Routes>
         <Route path="/" element={<Home />} key={1} />
         <Route path="/admin" element={<Admin />} key={2} />
@@ -61,6 +62,12 @@ function App() {
         <Route path="/allProduct" element={<AllProduct />} key={4} />
         <Route path="/category/:category" element={<Category />} key={5} />
         <Route path="/basket" element={<Order />} key={6} />
+        <Route
+          path="/allProduct"
+          element={<AllProduct value={value} />}
+          key={3}
+        />
+        <Route path="/category/:category" element={<Category />} key={5} />
       </Routes>
     </div>
   );
