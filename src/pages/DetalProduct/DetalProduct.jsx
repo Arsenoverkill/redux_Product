@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DetalProduct.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ADD_BASKET } from "../../redux/actionTypes";
 
 const DetalProduct = () => {
@@ -10,7 +10,7 @@ const DetalProduct = () => {
   const [recomend, setRecomend] = useState([]);
   const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { id } = useParams();
   useEffect(() => {
@@ -136,9 +136,12 @@ const DetalProduct = () => {
             />
           </div>
         </div>
-        <div onClick={()=>{
-          setAlert(false)
-        }} class="success__close">
+        <div
+          onClick={() => {
+            setAlert(false);
+          }}
+          class="success__close"
+        >
           <svg
             height="20"
             viewBox="0 0 20 20"

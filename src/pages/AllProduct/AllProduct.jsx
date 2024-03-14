@@ -18,8 +18,8 @@ const AllProduct = () => {
             setCategory('all')
           }}
           style={{
-            color: active == 1 ? "#2382AA" : "",
-            borderBottom: active == 1 ? "3px solid #2382AA" : "",
+            color: active === 1 ? "#2382AA" : "",
+            borderBottom: active === 1 ? "3px solid #2382AA" : "",
           }}
         >
           All
@@ -29,8 +29,8 @@ const AllProduct = () => {
             setActive(2);
           }}
           style={{
-            color: active == 2 ? "#2382AA" : "",
-            borderBottom: active == 2 ? "3px solid #2382AA" : "",
+            color: active === 2 ? "#2382AA" : "",
+            borderBottom: active === 2 ? "3px solid #2382AA" : "",
           }}
         >
           Fruits
@@ -40,8 +40,8 @@ const AllProduct = () => {
             setActive(3);
           }}
           style={{
-            color: active == 3 ? "#2382AA" : "",
-            borderBottom: active == 3 ? "3px solid #2382AA" : "",
+            color: active === 3 ? "#2382AA" : "",
+            borderBottom: active === 3 ? "3px solid #2382AA" : "",
           }}
         >
           Meats
@@ -51,8 +51,8 @@ const AllProduct = () => {
             setActive(4);
           }}
           style={{
-            color: active == 4 ? "#2382AA" : "",
-            borderBottom: active == 4 ? "3px solid #2382AA" : "",
+            color: active === 4 ? "#2382AA" : "",
+            borderBottom: active === 4 ? "3px solid #2382AA" : "",
           }}
         >
           Drinks
@@ -62,8 +62,8 @@ const AllProduct = () => {
             setActive(5);
           }}
           style={{
-            color: active == 5 ? "#2382AA" : "",
-            borderBottom: active == 5 ? "3px solid #2382AA" : "",
+            color: active === 5 ? "#2382AA" : "",
+            borderBottom: active === 5 ? "3px solid #2382AA" : "",
           }}
         >
           Sweets
