@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.scss";
 import homeLogo from "../../images/home.png";
 import { SlBasket } from "react-icons/sl";
@@ -72,7 +72,7 @@ const Header = ({ setValue }) => {
             }}
           >
             <NavLink
-              to="/basket"
+              to="/basket/"
               style={{
                 fontSize: "25px",
                 cursor: "pointer",

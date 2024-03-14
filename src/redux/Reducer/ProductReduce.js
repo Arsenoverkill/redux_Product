@@ -1,4 +1,4 @@
-import { ADD_BASKET, ADD_PRODUCT } from "../actionTypes";
+import { ADD_BASKET, ADD_PRODUCT, DEL_BASKET } from "../actionTypes";
 
 const initiolState = {
   product: JSON.parse(localStorage.getItem("product")) || [],
@@ -11,6 +11,11 @@ export const readProduct = (state = initiolState, action) => {
     }
     case ADD_BASKET:{
       return {...state,order: [...state.order,action.payload]}
+    }
+    case DEL_BASKET:{
+      let delBasket = state.order.filter((el)=>el.id !== action.payload)
+      localStorage.setItem('order',JSON.stringify(delBasket))
+      return{...state,order: delBasket}
     }
     default: {
       return state;

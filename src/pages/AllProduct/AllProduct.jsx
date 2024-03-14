@@ -30,8 +30,8 @@ const AllProduct = ({ value }) => {
             setCategory("all");
           }}
           style={{
-            color: active == 1 ? "#2382AA" : "",
-            borderBottom: active == 1 ? "3px solid #2382AA" : "",
+            color: active === 1 ? "#2382AA" : "",
+            borderBottom: active === 1 ? "3px solid #2382AA" : "",
           }}
         >
           All
@@ -42,8 +42,8 @@ const AllProduct = ({ value }) => {
             setCategory("vegetable");
           }}
           style={{
-            color: active == 2 ? "#2382AA" : "",
-            borderBottom: active == 2 ? "3px solid #2382AA" : "",
+            color: active === 2 ? "#2382AA" : "",
+            borderBottom: active === 2 ? "3px solid #2382AA" : "",
           }}
         >
           Fruits
@@ -54,8 +54,8 @@ const AllProduct = ({ value }) => {
             setCategory("meat");
           }}
           style={{
-            color: active == 3 ? "#2382AA" : "",
-            borderBottom: active == 3 ? "3px solid #2382AA" : "",
+            color: active === 3 ? "#2382AA" : "",
+            borderBottom: active === 3 ? "3px solid #2382AA" : "",
           }}
         >
           Meats
@@ -66,8 +66,8 @@ const AllProduct = ({ value }) => {
             setCategory("drink");
           }}
           style={{
-            color: active == 4 ? "#2382AA" : "",
-            borderBottom: active == 4 ? "3px solid #2382AA" : "",
+            color: active === 4 ? "#2382AA" : "",
+            borderBottom: active === 4 ? "3px solid #2382AA" : "",
           }}
         >
           Drinks
@@ -78,8 +78,8 @@ const AllProduct = ({ value }) => {
             setCategory("sweet");
           }}
           style={{
-            color: active == 5 ? "#2382AA" : "",
-            borderBottom: active == 5 ? "3px solid #2382AA" : "",
+            color: active === 5 ? "#2382AA" : "",
+            borderBottom: active === 5 ? "3px solid #2382AA" : "",
           }}
         >
           Sweets
