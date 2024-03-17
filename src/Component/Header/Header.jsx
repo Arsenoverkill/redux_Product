@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 import homeLogo from "../../images/home.png";
 import { SlBasket } from "react-icons/sl";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RiAdminFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
 
 const Header = ({ setValue }) => {
-  const [nav, setNav] = useState("");
+  const order = useSelector((state) => state.product.order);
+  const password = JSON.parse(localStorage.getItem("password")) || [];
   const navigate = useNavigate();
   return (
     <header>
@@ -28,11 +30,15 @@ const Header = ({ setValue }) => {
               }}
             >
               <img
-                style={{
-                  width: "110px",
-                  objectFit: "cover",
+                onClick={() => {
+                  navigate("/allProduct");
                 }}
-                src="https://png.pngtree.com/png-vector/20230108/ourmid/pngtree-online-shop-logo-design-with-modern-concept-png-image_6555719.png"
+                style={{
+                  width: "13%",
+                  objectFit: "cover",
+                  cursor: "pointer",
+                }}
+                src="https://www.unisg.it/assets/goodfood-logo-no-bg.png"
                 alt=""
               />
               <div className="homeLips">
@@ -50,10 +56,9 @@ const Header = ({ setValue }) => {
               class="input-2"
               onChange={(e) => {
                 setValue(e.target.value);
-                setNav(e.target.value);
               }}
-              onClick={()=>{
-                navigate('/allProduct')
+              onClick={() => {
+                navigate("/allProduct");
               }}
             />
             <svg
@@ -78,16 +83,23 @@ const Header = ({ setValue }) => {
             }}
           >
             <NavLink
-              to="/basket/"
+              to="/basket"
               style={{
                 fontSize: "25px",
                 cursor: "pointer",
                 color: "black",
               }}
             >
-              <SlBasket />
+              <div className="quintity-order">
+                {order.length > 0 ? order.length : ""}
+              </div>
+              <SlBasket
+                style={{
+                  fontSize: "30px",
+                }}
+              />
             </NavLink>
-            <NavLink to="/admin">
+            <NavLink to={password[0] ? "/admin" : "password"}>
               <RiAdminFill
                 style={{
                   fontSize: "25px",

@@ -6,13 +6,31 @@
   gap: 20px;
 }
 .select_category {
-  margin-right: 220px;
+  margin-right: 255px;
   outline: none;
   padding: 10px 20px;
   color: #2382aa;
   width: 130px;
   border-radius: 10px;
   border: 2px solid #2382aa;
+}
+.fon {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  height: 100%;
+  object-fit: cover;
+}
+.leave {
+  background: radial-gradient(100% 100% at 100% 0%, #f21919 0%, #e85656 100%);
+  box-shadow: none;
+  right: 100px;
+  top: 130px;
+  position: absolute;
+}
+.leave:hover {
+  box-shadow: none;
 }
 .input {
   height: 50px;

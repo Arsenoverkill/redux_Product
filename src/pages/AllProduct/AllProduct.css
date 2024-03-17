@@ -27,11 +27,12 @@
 .edit_delet button {
   padding: 3px 10px 0 10px;
   height: 33px;
-  box-shadow: none;
 }
 .edit {
-  background: rgba(15, 162, 15, 0.774);
+  background: rgb(1, 161, 1);
+  box-shadow: 0 0 7px 1px green;
 }
 .delet {
   background: rgba(248, 37, 37, 0.774);
+  box-shadow: 0 0 7px 1px red;
 }

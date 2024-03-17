@@ -2,34 +2,46 @@ import React, { useEffect, useState } from "react";
 import "./DetalProduct.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import add_product from "../../images/add_product.svg";
 import { ADD_BASKET } from "../../redux/actionTypes";
 
 const DetalProduct = () => {
   const product = useSelector((s) => s.product.product);
   const [detalProduct, setDetalProduct] = useState([]);
-  const [recomend, setRecomend] = useState('');
+  const [recomend, setRecomend] = useState("");
   const [alert, setAlert] = useState(false);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
-
   const { id } = useParams();
   useEffect(() => {
     let res = product.filter((el) => {
       return el.id == id;
     });
     detalProduct.map((el) => {
-        setRecomend(el.category)
+      setRecomend(el.category);
     });
     setDetalProduct(res);
   }, [detalProduct]);
 
-  function setOrder() {
+  function setOrder(id, count) {
     let order = JSON.parse(localStorage.getItem("order")) || [];
-    order.push(detalProduct[0]);
-    localStorage.setItem("order", JSON.stringify(order));
-    dispatch({ type: ADD_BASKET, payload: detalProduct });
+    let res = order.some((el) => {
+      return el.id == id;
+    });
+    if (res == false) {
+      order.push(detalProduct[0]);
+      localStorage.setItem("order", JSON.stringify(order));
+      dispatch({ type: ADD_BASKET, payload: detalProduct[0] });
+      setAlert(true);
+    } else {
+      order.map((el) => {
+        if (el.id == id) {
+          return (el.count += count);
+        }
+      });
+      localStorage.setItem("order", JSON.stringify(order));
+      setAlert(true);
+    }
   }
   return (
     <div className="container">
@@ -41,13 +53,9 @@ const DetalProduct = () => {
               <div style={{ marginTop: "40px" }}>
                 <h2 className="detal_name">{el.name}</h2>
                 <p className="detal_plot">{el.plot}</p>
-                <h1>{el.price}$</h1>
+                <h1>{el.price * el.count}$</h1>
                 <h2 className="detal_category">Category: {el.category}</h2>
                 <div className="plus_minus">
-                  <button onClick={() => (el.count += 1)} class="button">
-                    +
-                  </button>
-                  <h4>{el.count}</h4>
                   <button
                     onClick={() => {
                       if (el.count > 1) {
@@ -58,6 +66,10 @@ const DetalProduct = () => {
                   >
                     -
                   </button>
+                  <h4>{el.count}</h4>
+                  <button onClick={() => (el.count += 1)} class="button">
+                    +
+                  </button>
                 </div>
                 <div className="btns">
                   <button className="button-2">
@@ -66,9 +78,8 @@ const DetalProduct = () => {
                   </button>
                   <button
                     onClick={() => {
-                      setOrder();
+                      setOrder(el.id, el.count);
                       // navigate("/order");
-                      setAlert(true);
                     }}
                     className="button-2"
                   >
@@ -86,22 +97,22 @@ const DetalProduct = () => {
               Recomend product
             </h1>
             <div className="recomend">
-              {product.map((el)=>{
-                if(el.category == recomend){
-                  return(
-                      <div>
-                        <div className="home_block">
-                          <img className="product" src={el.image} alt="" />
-                          <NavLink to={`/detal/${el.id}`}>
-                            <img className="add" src={add_product} alt="" />
-                          </NavLink>
-                          <h1>{el.price}$</h1>
-                          <h3>
-                            {el.name.length > 20 ? el.name.slice(0, 20) : el.name}
-                          </h3>
-                        </div>
+              {product.map((el) => {
+                if (el.category == recomend) {
+                  return (
+                    <div>
+                      <div className="home_block">
+                        <img className="product" src={el.image} alt="" />
+                        <NavLink to={`/detal/${el.id}`}>
+                          <img className="add" src={add_product} alt="" />
+                        </NavLink>
+                        <h1>{el.price}$</h1>
+                        <h3>
+                          {el.name.length > 20 ? el.name.slice(0, 20) : el.name}
+                        </h3>
                       </div>
-                  )
+                    </div>
+                  );
                 }
               })}
             </div>
@@ -143,7 +154,7 @@ const DetalProduct = () => {
                 margin: "0 10px",
               }}
             >
-              Добавлено в корзину
+              Товар добавлень в корзину
             </p>
             <img
               style={{

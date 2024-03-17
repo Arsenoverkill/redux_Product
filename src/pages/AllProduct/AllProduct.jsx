@@ -1,19 +1,27 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import add_product from "../../images/add_product.svg";
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./AllProduct.css";
 import { useState } from "react";
+import { EDIT_PRODUCT, GET_PRODUCT } from "../../redux/actionTypes";
 const AllProduct = ({ value }) => {
   const product = useSelector((state) => state.product.product);
+  const dispatch = useDispatch();
   const [active, setActive] = useState(1);
   const [category, setCategory] = useState("all");
   const [categoryProduct, setCategoryProduct] = useState([]);
   const [rename, setRename] = useState(false);
+
+
+  let password = JSON.parse(localStorage.getItem("password")) || [];
+
+  const navigate = useNavigate();
+
   let searchProduct = product.filter((el) => {
-    return el.name.includes(value);
+    return el.name.toLowerCase().includes(value.toLowerCase());
   });
   function filterProduct() {
     let res = product.filter((el) => {
@@ -26,6 +34,9 @@ const AllProduct = ({ value }) => {
   }, [categoryProduct, searchProduct]);
   return (
     <div id="allPoduct">
+      <div style={{
+        display: password[0] ? 'block' : 'none'
+      }}>
       <button
         style={{
           position: "absolute",
@@ -55,6 +66,7 @@ const AllProduct = ({ value }) => {
       >
         Отменить изминение
       </button>
+      </div>
       <div className="links">
         <p
           onClick={() => {
@@ -164,7 +176,20 @@ const AllProduct = ({ value }) => {
                         <MdDelete />
                       </button>
                       <button className="edit">
-                        <MdEdit />
+                        <MdEdit onClick={() => {
+                          dispatch({
+                            type: EDIT_PRODUCT,
+                            payload: {
+                              name: el.name,
+                              image: el.image,
+                              price: el.price,
+                              id: el.id,
+                              category: el.category,
+                              plot: el.plot,
+                            },
+                          });
+                          navigate("/edit");
+                        }} />
                       </button>
                     </div>
                   </div>
@@ -213,10 +238,26 @@ const AllProduct = ({ value }) => {
                     }}
                   >
                     <button className="delet">
-                      <MdDelete />
+                      <MdDelete onClick={()=>{
+                        dispatch({type:GET_PRODUCT,payload:el.id})
+                      }} />
                     </button>
                     <button className="edit">
-                      <MdEdit />
+                      <MdEdit
+                        onClick={() => {
+                          dispatch({
+                            type: EDIT_PRODUCT,
+                            payload: {
+                              name: el.name,
+                              image: el.image,
+                              price: el.price,
+                              id: el.id,
+                              category: el.category,
+                            },
+                          });
+                          navigate("/edit");
+                        }}
+                      />
                     </button>
                   </div>
                 </div>
@@ -258,7 +299,20 @@ const AllProduct = ({ value }) => {
                       <MdDelete />
                     </button>
                     <button className="edit">
-                      <MdEdit />
+                      <MdEdit onClick={() => {
+                          dispatch({
+                            type: EDIT_PRODUCT,
+                            payload: {
+                              name: el.name,
+                              image: el.image,
+                              price: el.price,
+                              id: el.id,
+                              category: el.category,
+                              plot: el.plot,
+                            },
+                          });
+                          navigate("/edit");
+                        }} />
                     </button>
                   </div>
                 </div>

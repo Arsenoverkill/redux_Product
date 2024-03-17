@@ -14,6 +14,11 @@ const Home = () => {
         marginTop: "30px",
       }}
     >
+      <img
+        src="https://fonoteka.top/uploads/posts/2022-02/1643880251_1-phonoteka-org-p-fon-dlya-letnego-menyu-1.jpg"
+        alt=""
+        className="home-fon"
+      />
       <button
         onClick={() => {
           navigate("/allProduct");
@@ -79,11 +84,11 @@ const Home = () => {
             alt=""
           />
         </div>
-        <NavLink to={"/allProduct"}>
+        <NavLink to="/allProduct">
           <h2
             style={{
               cursor: "pointer",
-              color: "#2382AA",
+              color: "blue",
             }}
           >
             See All
@@ -210,13 +215,16 @@ const Home = () => {
             alt=""
           />
         </div>
-        <h2
-          style={{
-            color: "#2382AA",
-          }}
-        >
-          See All
-        </h2>
+        <NavLink to="/allProduct">
+          <h2
+            style={{
+              cursor: "pointer",
+              color: "blue",
+            }}
+          >
+            See All
+          </h2>
+        </NavLink>
       </div>
       <div className="container">
         <div className="home_blocks">
