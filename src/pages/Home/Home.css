@@ -20,7 +20,7 @@
 .lips {
   width: 170px;
   height: 170px;
-  background: #2382aa56;
+  background: #046e9b96;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -42,10 +42,11 @@
   width: 320px;
   height: 420px;
   padding: 40px 20px 0px 25px;
-  border: solid 3px #dedede;
+  border: solid 3px #a18aff;
   border-radius: 25px;
-  box-shadow: 0 0 3px #dedede;
+  box-shadow: 0 0 2px #5e44f4;
   position: relative;
+  background: #1231fa20;
 }
 .home_block h1 {
   font-size: 35px;
@@ -67,4 +68,12 @@
   right: 30px;
   top: 240px;
   cursor: pointer;
+}
+.home-fon {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  top: 0;
+  height: 192vh;
+  object-fit: cover;
 }

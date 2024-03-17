@@ -28,6 +28,8 @@
 .recomend {
   display: flex;
   gap: 30px;
+  overflow: auto;
+  margin-left: -70px;
 }
 .btns {
   display: flex;
@@ -139,7 +141,7 @@
   position: absolute;
   top: 100px;
   right: 100px;
-  animation: succes 1s;
+  animation: succes 0.8s;
 }
 @keyframes succes {
   0% {

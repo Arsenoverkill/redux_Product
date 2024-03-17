@@ -1,13 +1,33 @@
 .order1 img {
-  width: 16pc;
-  height: 16pc;
+  width: 15pc;
+  height: 15pc;
   border-radius: 10px;
   background-color: rgb(30, 69, 69);
-  background: #2382aa56;
+  background: #6fc5ea56;
   border-color: black;
   border-color: #2382aa56;
 }
-
+.empty {
+  margin: 150px 0 0 550px;
+}
+.empty p {
+  margin-left: 30px;
+  width: 350px;
+  text-align: center;
+  color: #868695;
+}
+.empty button {
+  margin-left: 90px;
+  margin-top: 30px;
+  background: #5252fae2;
+}
+.empty_block {
+  display: flex;
+  gap: 20px;
+}
+.empty_block img {
+  width: 5%;
+}
 .order {
   display: flex;
   flex-direction: column;
@@ -31,21 +51,22 @@
 }
 .order-nav h1 {
   position: absolute;
-  margin-top: 5pc;
-  font-size: 3pc;
+  margin-top: 4pc;
+  font-size: 1.5pc;
+  color: rgb(101, 180, 249);
   left: 30pc;
 }
-/* .order-nav h3 {
+.order-nav p {
+  margin-top: 8pc;
+  font-size: 1.2pc;
+  color: rgb(101, 180, 249);
   position: absolute;
-  margin-top: 5pc;
-  left: 19.5pc;
-} */
-
+  left: 30pc;
+}
 .order-nav h2 {
   position: absolute;
-  color: red;
-  margin-top: -9pc;
-  font-size: 3pc;
+  margin-top: -12pc;
+  font-size: 2.2pc;
   left: 30pc;
 }
 .div {
