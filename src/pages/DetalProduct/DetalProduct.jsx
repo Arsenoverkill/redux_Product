@@ -92,9 +92,19 @@ const DetalProduct = () => {
             <h1
               style={{
                 margin: "60px 0",
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
               }}
             >
-              Recomend product
+              Похожие продукты{" "}
+              <img
+                style={{
+                  width: "70px",
+                }}
+                src="https://assets-global.website-files.com/646218c67da47160c64a84d5/64634bf4fc1f8b26e456c8b8_86.png"
+                alt=""
+              />
             </h1>
             <div className="recomend">
               {product.map((el) => {
